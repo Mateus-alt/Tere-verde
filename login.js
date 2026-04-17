@@ -47,4 +47,30 @@ botaoLogin.addEventListener('click', function (event) {
 
     mostrarMensagem('Login bem-sucedido');
     // Aqui você pode adicionar a lógica de redirecionamento para a área administrativa.
+    botaoLogin.addEventListener('click', function (event) {
+    const usuario = usuarioInput.value.trim();
+    const senha = senhaInput.value.trim();
+
+    if (!usuario || !senha) {
+        event.preventDefault();
+        mostrarMensagem('Usuário ou senha não informados');
+        return;
+    }
+
+    // Mantendo a validação original do Lorran (admin/admin)
+    if (usuario !== adminUsuario || senha !== adminSenha) {
+        event.preventDefault();
+        mostrarMensagem('Usuário ou senha inválidos');
+        return;
+    }
+
+    // Se o login estiver correto:
+    const mensagem = document.getElementById('loginMessage');
+    if (mensagem) {
+        mensagem.remove();
+    }
+
+    // 1. Mensagem de sucesso
+    alert('🔓 Login bem-sucedido! Redirecionando para o painel de eventos...');
+    window.location.href = "admin_eventos.html"; 
 });
