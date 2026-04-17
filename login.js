@@ -52,5 +52,5 @@ botaoLogin.addEventListener('click', function (event) {
     }
 
     mostrarMensagem('Login bem-sucedido');
-    // Aqui você pode adicionar a lógica de redirecionamento para a área administrativa.
+    window.location.href = "admin_eventos.html";
 });
